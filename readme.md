@@ -4,15 +4,17 @@ Features
 •	Lists
 Basic Acceptance Criteria
 1.	Users will be able to register for SafeEats.
-2.	User will be able to lock in ingredients or let them be randomly chosen.
+2.	Recipes will be searchable by ingredient/multiple ingredeients.
 3.	Recipes will be suggested by the types of ingredients chosen.
 4.	Users will be able to favorite recipes.
-5.	Users will have their profile page which will show favorite recipes.
-6.	Recipes will be safe to eat for pregnant women.
+5.	Users will have their profile page which will show favorite recipes
+6.  Recipes will be sorted by certain categories
 7.  Users will be able to create recipes.
 8.  Users will be able to update recipes.
 9.  Users will be able to delete recipes.
-10.  Users will be able to remove favorite recipes.
+10.  Users will be able to unfavorite recipes.
+11.  When adding an ingredient will verify that ingredient doesnt already exist.
+
 
 
 Stretch Goals

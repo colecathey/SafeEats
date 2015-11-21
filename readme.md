@@ -1,8 +1,9 @@
- SafeEats: DinnerSpinner for the Demanding Diet
+#SafeEats: DinnerSpinner for the Demanding Diet
 A helpful tool to figure out what she wants to eat tonight!!! Use an ingredient spinner to find tasty recipe’s to fit any craving she might have.
-Features
-•	Lists
-Basic Acceptance Criteria
+
+
+#Basic Acceptance Criteria
+
 1.	Users will be able to register for SafeEats.
 2.	Recipes will be searchable by ingredient/multiple ingredeients.
 3.	Recipes will be suggested by the types of ingredients chosen.
@@ -17,6 +18,6 @@ Basic Acceptance Criteria
 
 
 
-Stretch Goals
+#Stretch Goals
 1. Gluten free options will be made available
 2. Vegetarian options will be made available

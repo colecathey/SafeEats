@@ -7,5 +7,8 @@ namespace SafeEats.Models
 {
     public class Ingredient
     {
+        public string IngredientName { get; set; }
+        public int IngredientId { get; set; }
+        public Type IngredientType { get; set; }
     }
 }

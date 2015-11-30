@@ -15,7 +15,7 @@ namespace SafeEats.Tests.models
         }
 
         [TestMethod]
-        public void CardEnsurePropertiesWork()
+        public void CardEnsureRecipePropertiesWork()
         {
             var tom = new ApplicationUser();
             

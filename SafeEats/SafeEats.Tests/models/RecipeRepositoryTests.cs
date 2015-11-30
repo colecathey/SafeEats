@@ -4,10 +4,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace SafeEats.Tests.models
 {
     [TestClass]
-    public class BoardRepositoryTests
+    public class RecipeRepositoryTests
     {
 
-        private Mock<BoardContext> mock_context;
+        /*private Mock<BoardContext> mock_context;
         private Mock<DbSet<Board>> mock_boards;
         private List<Board> my_list;
         private ApplicationUser owner, user1, user2;
@@ -43,12 +43,12 @@ namespace SafeEats.Tests.models
             mock_context = null;
             mock_boards = null;
             my_list = null;
-        }
+        }*/
 
         [TestMethod]
-        public void BoardRepositoryEnsureICanCreateInstance()
+        public void RecipeRepositoryEnsureICanCreateInstance()
         {
-            BoardRepository board = new BoardRepository(mock_context.Object);
+            RecipeRepository board = new RecipeRepository(mock_context.Object);
             Assert.IsNotNull(board);
         }
 

@@ -14,5 +14,6 @@ namespace SafeEats.Models
         public ApplicationUser RecipeCreator { get; set; }
         public bool RecipeType { get; set; }
         public string RecipeRecipe { get; set; }
+        public object Recipes { get; internal set; }
     }
 }

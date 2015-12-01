@@ -1,5 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SafeEats.Models;
+using Moq;
+using System.Data.Entity;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SafeEats.Tests.models
 {
@@ -7,9 +12,9 @@ namespace SafeEats.Tests.models
     public class RecipeRepositoryTests
     {
 
-        /*private Mock<BoardContext> mock_context;
-        private Mock<DbSet<Board>> mock_boards;
-        private List<Board> my_list;
+        private Mock<RecipeContext> mock_context;
+        private Mock<DbSet<Recipe>> mock_boards;
+        private List<Recipe> my_list;
         private ApplicationUser owner, user1, user2;
 
         private void ConnectMocksToDataSource()
@@ -17,20 +22,20 @@ namespace SafeEats.Tests.models
             // This setups the Mocks and connects to the Data Source (my_list in this case)
             var data = my_list.AsQueryable();
 
-            mock_boards.As<IQueryable<Board>>().Setup(m => m.Provider).Returns(data.Provider);
-            mock_boards.As<IQueryable<Board>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
-            mock_boards.As<IQueryable<Board>>().Setup(m => m.ElementType).Returns(data.ElementType);
-            mock_boards.As<IQueryable<Board>>().Setup(m => m.Expression).Returns(data.Expression);
+            mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.Provider).Returns(data.Provider);
+            mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+            mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.Expression).Returns(data.Expression);
 
-            mock_context.Setup(m => m.Boards).Returns(mock_boards.Object);
+            mock_context.Setup(m => m.Recipes).Returns(mock_recipes.Object);
         }
 
         [TestInitialize]
         public void Initialize()
         {
-            mock_context = new Mock<BoardContext>();
-            mock_boards = new Mock<DbSet<Board>>();
-            my_list = new List<Board>();
+            mock_context = new Mock<RecipeContext>();
+            mock_recipes = new Mock<DbSet<Recipe>>();
+            my_list = new List<Recipe>();
             owner = new ApplicationUser();
             user1 = new ApplicationUser();
             user2 = new ApplicationUser();
@@ -41,68 +46,68 @@ namespace SafeEats.Tests.models
         public void Cleanup()
         {
             mock_context = null;
-            mock_boards = null;
+            mock_recipes = null;
             my_list = null;
-        }*/
+        }
 
         [TestMethod]
         public void RecipeRepositoryEnsureICanCreateInstance()
         {
-            RecipeRepository board = new RecipeRepository(mock_context.Object);
-            Assert.IsNotNull(board);
+            RecipeRepository recipe = new RecipeRepository(mock_context.Object);
+            Assert.IsNotNull(recipe);
         }
 
         [TestMethod]
-        public void BoardRepositoryEnsureICanAddAList()
+        public void RecipeRepositoryEnsureICanAddAList()
         {
 
-            BoardRepository board_repo = new BoardRepository(mock_context.Object);
-            BrelloList list = new BrelloList { Title = "ToDo", BrelloListId = 1 };
-            my_list.Add(new Board { Title = "My First Board", Owner = user1, BoardId = 1 });
+            RecipeRepository recipe_repo = new RecipeRepository(mock_context.Object);
+            Recipe list = new Recipe { RecipeName = "Soup", RecipeId = 1 };
+            my_recipe.Add(new Recipe { RecipeName = "Meatloaf", RecipeCreator = user1, RecipeId = 1 });
 
             ConnectMocksToDataSource();
 
 
-            bool actual = board_repo.AddList(1, list);
+            bool actual = recipe_repo.AddList(1, list);
 
-            Assert.AreEqual(1, board_repo.GetListCount());
+            Assert.AreEqual(1, recipe_repo.GetListCount());
             Assert.IsTrue(actual);
         }
 
         [TestMethod]
-        public void BoardRepositoryEnsureFalseIfInvalidBoardId()
+        public void RecipeRepositoryEnsureFalseIfInvalidRecpieId()
         {
-            BoardRepository board_repo = new BoardRepository(mock_context.Object);
-            BrelloList list = new BrelloList { Title = "ToDo", BrelloListId = 1 };
-            my_list.Add(new Board { Title = "My First Board", Owner = user1, BoardId = 1 });
+            RecipeRepository recipe_repo = new RecipeRepository(mock_context.Object);
+            Recipe list = new Recipe { RecipeName = "Soup", RecipeId = 1 };
+            my_recipe.Add(new Recipe { RecipeName = "Meatloaf", RecipeCreator = user1, RecipeId = 1 });
 
             ConnectMocksToDataSource();
 
-            bool actual = board_repo.AddList(3, list);
+            bool actual = recipe_repo.AddList(3, list);
 
-            Assert.AreEqual(0, board_repo.GetListCount());
+            Assert.AreEqual(0, recipe_repo.GetListCount());
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
-        public void BoardRepositoryEnsureICanGetAllLists()
+        public void RecipeRepositoryEnsureICanGetAllLists()
         {
             /* Begin Arrange */
 
-            var brello_lists = new List<BrelloList>
+            var recipe_lists = new List<RecipeList>
             {
-                new BrelloList { Title = "My List", BrelloListId = 1}
+                new RecipeList { Title = "My List", RecipeListId = 1}
             };
 
-            my_list.Add(new Board { Title = "Tim's Board", Owner = user1, BoardId = 1, Lists = brello_lists });
-            my_list.Add(new Board { Title = "Sally's Board", Owner = user2, BoardId = 2, Lists = brello_lists });
+            my_list.Add(new Recipe { RecipeName = "Soup", RecipeCreator = user1, RecipeId = 1, Lists = brello_lists });
+            my_list.Add(new Recipe { RecipeName = "Meatloaf", RecipeCreator = user2, RecipeId = 2, Lists = brello_lists });
             ConnectMocksToDataSource();
-            BoardRepository board_repo = new BoardRepository(mock_context.Object);
+            RecipeRepository recipe_repo = new RecipeRepository(mock_context.Object);
             /* End Arrange */
 
             /* Begin Act */
             int expected = 2;
-            int actual = board_repo.GetAllLists().Count;
+            int actual = recipe_repo.GetAllLists().Count;
             /* End Act */
 
             /* Begin Assert */
@@ -111,19 +116,19 @@ namespace SafeEats.Tests.models
         }
 
         [TestMethod]
-        public void BoardRepositoryEnsureThereAreZeroLists()
+        public void RecipeRepositoryEnsureThereAreZeroLists()
         {
             /* Begin Arrange */
-            my_list.Add(new Board { Title = "Tim's Board", Owner = user1 });
-            my_list.Add(new Board { Title = "Sally's Board", Owner = user2 });
+            my_list.Add(new Recipe { RecipeName = "Soup", RecipeCreator = user1 });
+            my_list.Add(new Recipe { RecipeName = "Meatloaf", RecipeCreator = user2 });
 
             ConnectMocksToDataSource();
-            BoardRepository board_repo = new BoardRepository(mock_context.Object);
+            RecipeRepository recipe_repo = new RecipeRepository(mock_context.Object);
             /* End Arrange */
 
 
             int expected = 0;
-            int actual = board_repo.GetListCount();
+            int actual = recipe_repo.GetListCount();
             Assert.AreEqual(expected, actual);
 
         }
@@ -135,22 +140,22 @@ namespace SafeEats.Tests.models
         public void BoardRepositoryEnsureABoardHasZeroLists()
         {
             /* Begin Arrange */
-            my_list.Add(new Board { Title = "Tim's Board", Owner = user1, BoardId = 1 });
+            my_list.Add(new Recipe { RecipeName = "Soup", RecipeCreator = user1, RecipeId = 1 });
 
             ConnectMocksToDataSource();
             /* Begin Act */
-            BoardRepository board_repo = new BoardRepository(mock_context.Object);
+            RecipeRepository recipe_repo = new RecipeRepository(mock_context.Object);
             /* Begin Assert */
             int expected = 0;
-            Assert.AreEqual(expected, board_repo.GetAllLists(1).Count());
+            Assert.AreEqual(expected, recipe_repo.GetAllLists(1).Count());
         }
 
         [TestMethod]
-        public void BoardRepositoryCanGetABoard()
+        public void RecipeRepositoryCanGetABoard()
         {
             /* Begin Arrange */
-            my_list.Add(new Board { Title = "Tim's Board", Owner = user1 });
-            my_list.Add(new Board { Title = "Sally's Board", Owner = user2 });
+            my_list.Add(new Recipe { RecipeName = "Soup", RecipeCreator = user1 });
+            my_list.Add(new Recipe { RecipeName = "Meatloaf", RecipeCreator = user2 });
             ConnectMocksToDataSource();
 
             /* Leveraging the CreateBoard Method:
@@ -158,16 +163,16 @@ namespace SafeEats.Tests.models
                  Board added_board = board_repo.CreateBoard(title, owner);
             */
 
-            BoardRepository board_repository = new BoardRepository(mock_context.Object);
+            RecipeRepository recipe_repository = new RecipeRepository(mock_context.Object);
             /* Begin Act */
-            List<Board> user_boards = board_repository.GetBoards(user1);
+            List<Recipe> user_boards = recipe_repository.GetBoards(user1);
             /* Begin Assert */
             Assert.AreEqual(1, user_boards.Count());
-            Assert.AreEqual("Tim's Board", user_boards.First().Title);
+            Assert.AreEqual("Soup", user_boards.First().RecipeName);
         }
 
         [TestMethod]
-        public void BoardRepositoryCanGetBoardCount()
+        public void RecipeRepositoryCanGetRecipeCount()
         {
             /* Begin Arrange */
 
@@ -176,18 +181,18 @@ namespace SafeEats.Tests.models
             //mock_boards.Object.Add(new Board { Title = "My Awesome Board", Owner = new ApplicationUser() });
 
             //var data = mock_boards.Object.AsQueryable();
-            mock_boards.As<IQueryable<Board>>().Setup(m => m.Provider).Returns(data.Provider);
-            mock_boards.As<IQueryable<Board>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
-            mock_boards.As<IQueryable<Board>>().Setup(m => m.ElementType).Returns(data.ElementType);
-            mock_boards.As<IQueryable<Board>>().Setup(m => m.Expression).Returns(data.Expression);
+            mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.Provider).Returns(data.Provider);
+            mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+            mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.Expression).Returns(data.Expression);
 
-            mock_context.Setup(m => m.Boards).Returns(mock_boards.Object);
+            mock_context.Setup(m => m.Recipes).Returns(mock_recipes.Object);
             //mock_context.Object.SaveChanges(); // This saves something to the Database
-            BoardRepository board_repository = new BoardRepository(mock_context.Object);
+            RecipeRepository recipe_repository = new RecipeRepository(mock_context.Object);
             /* End Arrange */
 
             /* Begin Act */
-            int actual = board_repository.GetBoardCount();
+            int actual = recipe_repository.GetRecipeCount();
             /* End Act */
 
             /* Begin Assert */
@@ -195,12 +200,12 @@ namespace SafeEats.Tests.models
             /* End Assert */
 
             /* Begin Act */
-            my_list.Add(new Board { Title = "My Awesome Board" });
+            my_list.Add(new Recipe { RecipeName = "Soup" });
             mock_boards.As<IQueryable<Board>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
             /* End Act */
 
             /* Begin Assert */
-            Assert.AreEqual(1, board_repository.GetBoardCount());
+            Assert.AreEqual(1, recipe_repository.GetRecipeCount());
             /* End Assert */
         }
 
@@ -210,35 +215,35 @@ namespace SafeEats.Tests.models
             /* Begin Arrange */
             var data = my_list.AsQueryable();
 
-            mock_boards.As<IQueryable<Board>>().Setup(m => m.Provider).Returns(data.Provider);
-            mock_boards.As<IQueryable<Board>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
-            mock_boards.As<IQueryable<Board>>().Setup(m => m.ElementType).Returns(data.ElementType);
-            mock_boards.As<IQueryable<Board>>().Setup(m => m.Expression).Returns(data.Expression);
+            mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.Provider).Returns(data.Provider);
+            mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+            mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.Expression).Returns(data.Expression);
 
             // This allows BoardRepository to call Boards.Add and have it update the my_list instance and Enumerator
             // Connect DbSet.Add to List.Add so they work together
-            mock_boards.Setup(m => m.Add(It.IsAny<Board>())).Callback((Board b) => my_list.Add(b));
+            mock_context.Setup(m => m.Add(It.IsAny<Recipe>())).Callback((Recipe r) => my_recipe.Add(r));
 
-            mock_context.Setup(m => m.Boards).Returns(mock_boards.Object);
+            mock_context.Setup(m => m.Recipes).Returns(mock_context.Object);
 
-            BoardRepository board_repo = new BoardRepository(mock_context.Object);
-            string title = "My Awesome Board";
+            RecipeRepository recipe_repo = new RecipeRepository(mock_context.Object);
+            string recipeName = "Soup";
             /* End Arrange */
 
             /* Begin Act */
-            Board added_board = board_repo.CreateBoard(title, owner);
+            Recipe added_recipe = recipe_repo.CreateRecipe(recipeName, owner);
             /* End Act */
 
             /* Begin Assert */
-            Assert.IsNotNull(added_board);
-            mock_boards.Verify(m => m.Add(It.IsAny<Board>()));
+            Assert.IsNotNull(added_recipe);
+            mock_context.Verify(m => m.Add(It.IsAny<Recipe>()));
             mock_context.Verify(x => x.SaveChanges(), Times.Once());
-            Assert.AreEqual(1, board_repo.GetBoardCount());
+            Assert.AreEqual(1, recipe_repo.GetRecipeCount());
             /* End Assert */
         }
 
         [TestMethod]
-        public void BoardRepositoryEnsureICanGetAllBoards()
+        public void RecipeRepositoryEnsureICanGetAllBoards()
         {
             /* Begin Arrange */
 
@@ -247,19 +252,20 @@ namespace SafeEats.Tests.models
             // 3. You must ensure Provider, GetEnumerator(), ElementType, and Expression are defined
             //    with your collection class (the container class that holds your data).
 
-            my_list.Add(new Board { Title = "Tim's Board", Owner = owner });
-            my_list.Add(new Board { Title = "Sally's Board", Owner = owner });
+            my_list.Add(new Recipe { RecipeName = "Soup", RecipeCreator = user1 });
+            my_list.Add(new Recipe { RecipeName = "Meatloaf", RecipeCreator = user2 });
             ConnectMocksToDataSource();
 
-            BoardRepository board_repo = new BoardRepository(mock_context.Object);
+            RecipeRepository recipe_repo = new RecipeRepository(mock_context.Object);
             /* End Arrange */
 
             /* Begin Act */
-            List<Board> boards = board_repo.GetAllBoards();
+            List<Recipe> recipes = recipe_repo.GetAllRecipes();
             /* End Act */
 
             /* Begin Assert */
-            Assert.AreEqual(2, boards.Count);
+            Assert.AreEqual(2, recipes.Count);
             /* End Assert */
         }
     }
+}

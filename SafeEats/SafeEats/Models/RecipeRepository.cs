@@ -20,7 +20,7 @@ namespace SafeEats.Models
         }
 
         // void or bool or Recipe
-        public bool AddRecipe(int _recipe_id, Recipe _list)
+        public bool AddRecipe(int _recipe_id, RecipeList _list)
         {
             var query = from r in context.Recipes where r.RecipeId == _recipe_id select r;
             Recipe found_recipe = null;
@@ -28,7 +28,7 @@ namespace SafeEats.Models
             try
             {
                 found_recipe = query.Single<Recipe>();
-                found_recipe.Recipes.Add(_list);
+                found_recipe.Lists.Add(_list);
                 context.SaveChanges();
             }
             catch (InvalidOperationException)
@@ -42,9 +42,26 @@ namespace SafeEats.Models
             return result;
         }
 
-        public bool AddList(int v, Recipe list)
+        public bool AddList(int _recipe_id, RecipeList _list)
         {
-            throw new NotImplementedException();
+            var query = from r in context.Recipes where r.RecipeId == _recipe_id select r;
+            Recipe found_recipe = null;
+            bool result = true;
+            try
+            {
+                found_recipe = query.Single<Recipe>();
+                found_recipe.Lists.Add(_list);
+                context.SaveChanges();
+            }
+            catch (InvalidOperationException)
+            {
+                result = false;
+            }
+            catch (ArgumentNullException)
+            {
+                result = false;
+            }
+            return result;
         }
 
         public int GetListCount()

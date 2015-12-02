@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace SafeEats.Models
 {
@@ -27,7 +28,7 @@ namespace SafeEats.Models
             try
             {
                 found_recipe = query.Single<Recipe>();
-                found_recipe.Recipe.Add(_list);
+                found_recipe.Recipes.Add(_list);
                 context.SaveChanges();
             }
             catch (InvalidOperationException)
@@ -39,6 +40,21 @@ namespace SafeEats.Models
                 result = false;
             }
             return result;
+        }
+
+        public bool AddList(int v, Recipe list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetListCount()
+        {
+            throw new NotImplementedException();
+        }
+
+        public object GetAllLists()
+        {
+            throw new NotImplementedException();
         }
     }
 }

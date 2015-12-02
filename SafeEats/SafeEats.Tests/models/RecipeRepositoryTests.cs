@@ -13,7 +13,7 @@ namespace SafeEats.Tests.models
     {
 
         private Mock<RecipeContext> mock_context;
-        private Mock<DbSet<Recipe>> mock_boards;
+        private Mock<DbSet<Recipe>> mock_recipes;
         private List<Recipe> my_list;
         private ApplicationUser owner, user1, user2;
 
@@ -63,7 +63,7 @@ namespace SafeEats.Tests.models
 
             RecipeRepository recipe_repo = new RecipeRepository(mock_context.Object);
             Recipe list = new Recipe { RecipeName = "Soup", RecipeId = 1 };
-            my_recipe.Add(new Recipe { RecipeName = "Meatloaf", RecipeCreator = user1, RecipeId = 1 });
+            my_list.Add(new Recipe { RecipeName = "Meatloaf", RecipeCreator = user1, RecipeId = 1 });
 
             ConnectMocksToDataSource();
 
@@ -79,7 +79,7 @@ namespace SafeEats.Tests.models
         {
             RecipeRepository recipe_repo = new RecipeRepository(mock_context.Object);
             Recipe list = new Recipe { RecipeName = "Soup", RecipeId = 1 };
-            my_recipe.Add(new Recipe { RecipeName = "Meatloaf", RecipeCreator = user1, RecipeId = 1 });
+            my_list.Add(new Recipe { RecipeName = "Meatloaf", RecipeCreator = user1, RecipeId = 1 });
 
             ConnectMocksToDataSource();
 

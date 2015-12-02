@@ -56,5 +56,30 @@ namespace SafeEats.Models
         {
             throw new NotImplementedException();
         }
+
+        public object GetAllLists(int v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Recipe> GetRecipes(ApplicationUser user1)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetRecipeCount()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Recipe CreateRecipe(string recipeName, ApplicationUser owner)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Recipe> GetAllRecipes()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

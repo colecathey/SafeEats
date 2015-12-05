@@ -66,7 +66,7 @@ namespace SafeEats.Models
 
         public int GetListCount()
         {
-            throw new NotImplementedException();
+            return GetAllLists().Count;
         }
 
         public object GetAllLists()

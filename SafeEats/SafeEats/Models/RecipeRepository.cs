@@ -81,12 +81,13 @@ namespace SafeEats.Models
 
         public List<Recipe> GetRecipes(ApplicationUser user1)
         {
-            throw new NotImplementedException();
+            var query = from r in context.Recipes where r.RecipeCreator == user1 select b;
+            return query.ToList<Recipe>(); // Same as query.ToList();
         }
 
         public int GetRecipeCount()
         {
-            throw new NotImplementedException();
+            var query = from r in context.Recipes select r;
         }
 
         public Recipe CreateRecipe(string recipeName, ApplicationUser owner)

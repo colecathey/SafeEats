@@ -71,7 +71,7 @@ namespace SafeEats.Models
 
         public object GetAllLists()
         {
-            throw new NotImplementedException();
+            
         }
 
         public object GetAllLists(int v)
@@ -91,12 +91,17 @@ namespace SafeEats.Models
 
         public Recipe CreateRecipe(string recipeName, ApplicationUser owner)
         {
-            throw new NotImplementedException();
+            Recipe my_recipe = new Recipe { RecipeName = recipeName, RecipeCreator = owner };
+            context.Recipes.Add(my_recipe);
+            context.SaveChanges(); // This saves something to the Database
+
+            return my_recipe;
         }
 
         public List<Recipe> GetAllRecipes()
         {
-            throw new NotImplementedException();
+            var query = from l in context.Recipes select l;
+            return query.SelectMany(Recipe => recipe.Lists).ToList();
         }
     }
 }

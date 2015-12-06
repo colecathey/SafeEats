@@ -99,6 +99,7 @@
     <Compile Include="models\IngredientTests.cs" />
     <Compile Include="models\RecipeTests.cs" />
     <Compile Include="models\RecipeRepositoryTests.cs" />
+    <Compile Include="models\TypeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>

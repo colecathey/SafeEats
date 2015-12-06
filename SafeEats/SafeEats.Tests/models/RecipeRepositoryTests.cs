@@ -36,7 +36,7 @@ namespace SafeEats.Tests.models
         {
             mock_context = new Mock<RecipeContext>();
             mock_recipes = new Mock<DbSet<Recipe>>();
-            my_list = new List<Recipe>();
+            my_list = new List<RecipeList>();
             owner = new ApplicationUser();
             user1 = new ApplicationUser();
             user2 = new ApplicationUser();

@@ -69,14 +69,16 @@ namespace SafeEats.Models
             return GetAllLists().Count;
         }
 
-        public object GetAllLists()
+        public List<RecipeList> GetAllLists()
         {
-            
+            var query = from r in context.Recipes select r;
+            return query.SelectMany(recipe => recipe.Lists).ToList();
         }
 
-        public object GetAllLists(int v)
+        public List<RecipeList> GetAllLists(int _recipe_id)
         {
-            throw new NotImplementedException();
+            var query = from r in context.Recipes where r.RecipeId == _recipe_id select r.Lists;
+            return query.Single<List<RecipeList>>();
         }
 
         public List<Recipe> GetRecipes(ApplicationUser user1)

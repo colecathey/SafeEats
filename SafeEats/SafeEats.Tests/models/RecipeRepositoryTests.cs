@@ -15,7 +15,7 @@ namespace SafeEats.Tests.models
 
         private Mock<RecipeContext> mock_context;
         private Mock<DbSet<Recipe>> mock_recipes;
-        private List<RecipeList> my_list;
+        private List<Recipe> my_list;
         private ApplicationUser owner, user1, user2;
 
         private void ConnectMocksToDataSource()
@@ -36,7 +36,7 @@ namespace SafeEats.Tests.models
         {
             mock_context = new Mock<RecipeContext>();
             mock_recipes = new Mock<DbSet<Recipe>>();
-            my_list = new List<RecipeList>();
+            my_list = new List<Recipe>();
             owner = new ApplicationUser();
             user1 = new ApplicationUser();
             user2 = new ApplicationUser();
@@ -223,7 +223,7 @@ namespace SafeEats.Tests.models
 
             // This allows BoardRepository to call Boards.Add and have it update the my_list instance and Enumerator
             // Connect DbSet.Add to List.Add so they work together
-            mock_context.Setup(m => m.Add(It.IsAny<Recipe>())).Callback((Recipe r) => my_recipe.Add(r));
+            mock_context.Setup(m => m.Add(It.IsAny<Recipe>())).Callback((Recipe r) => mock_recipes.Add(r));
 
             mock_context.Setup(m => m.Recipes).Returns(mock_context.Object);
 

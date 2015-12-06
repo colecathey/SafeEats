@@ -83,13 +83,14 @@ namespace SafeEats.Models
 
         public List<Recipe> GetRecipes(ApplicationUser user1)
         {
-            var query = from r in context.Recipes where r.RecipeCreator == user1 select b;
+            var query = from r in context.Recipes where r.RecipeCreator == user1 select r;
             return query.ToList<Recipe>(); // Same as query.ToList();
         }
 
         public int GetRecipeCount()
         {
             var query = from r in context.Recipes select r;
+            return query.Count();
         }
 
         public Recipe CreateRecipe(string recipeName, ApplicationUser owner)
@@ -101,10 +102,10 @@ namespace SafeEats.Models
             return my_recipe;
         }
 
-        public List<Recipe> GetAllRecipes()
-        {
-            var query = from l in context.Recipes select l;
-            return query.SelectMany(Recipe => recipe.Lists).ToList();
-        }
+        //public List<Recipe> GetAllRecipes()
+        //{
+        //    var query = from r in context.Recipes select r;
+        //    return query.SelectMany(Recipe => recipe.Lists).ToList();
+        //}
     }
 }

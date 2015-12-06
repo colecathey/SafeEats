@@ -87,6 +87,11 @@ namespace SafeEats.Models
             return query.ToList<Recipe>(); // Same as query.ToList();
         }
 
+        public bool AddList(int v, Recipe list)
+        {
+            throw new NotImplementedException();
+        }
+
         public int GetRecipeCount()
         {
             var query = from r in context.Recipes select r;
@@ -100,6 +105,11 @@ namespace SafeEats.Models
             context.SaveChanges(); // This saves something to the Database
 
             return my_recipe;
+        }
+
+        public List<Recipe> GetAllRecipes()
+        {
+            throw new NotImplementedException();
         }
 
         //public List<Recipe> GetAllRecipes()

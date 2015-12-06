@@ -15,6 +15,6 @@ namespace SafeEats.Models
         public bool RecipeType { get; set; }
         public string RecipeRecipe { get; set; }
         //public object Recipes { get; internal set; }
-        public virtual List<RecipeList> Lists { get; set; }
+        //public virtual List<RecipeList> Lists { get; set; } ----??Is this necessary??
     }
 }

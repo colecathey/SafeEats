@@ -10,7 +10,7 @@ namespace SafeEats.Tests.models
         [TestMethod]
         public void CardEnsureICanCreateInstance()
         {
-            Type recipeType = new Type();
+            Models.Type recipeType = new Models.Type();
             Assert.IsNotNull(recipeType);
         }
 
@@ -19,7 +19,7 @@ namespace SafeEats.Tests.models
         {
 
             // Object Initializer syntax
-            Type recipeType = new Models.Type { TypeName = "Veg", TypeId = 4, TypeType = 1 };
+            Models.Type recipeType = new Models.Type { TypeName = "Veg", TypeId = 4, TypeType = 1 };
 
             Assert.AreEqual("Veg", recipeType.TypeName);
             Assert.AreEqual(4, recipeType.TypeId);

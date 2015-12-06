@@ -15,7 +15,7 @@ namespace SafeEats.Tests.models
 
         private Mock<RecipeContext> mock_context;
         private Mock<DbSet<Recipe>> mock_recipes;
-        private List<Recipe> my_list;
+        private List<RecipeList> my_list;
         private ApplicationUser owner, user1, user2;
 
         private void ConnectMocksToDataSource()

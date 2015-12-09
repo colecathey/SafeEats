@@ -22,12 +22,12 @@ namespace SafeEats.Tests.models
 
             // Object Initializer syntax
             Recipe recipe = new Recipe { RecipeName = "Soup", RecipeId = 4, RecipeCreator = tom,
-                RecipeDescription = "recipe", /*need to add ingredient list here*/ RecipeRecipe = "stir", RecipeType = true };
+                RecipeDescription = "recipe", /*need to add ingredient list here*/ RecipeDirections = "stir", RecipeType = true };
 
             Assert.AreEqual("Soup", recipe.RecipeName);
             Assert.AreEqual(4, recipe.RecipeId);
             Assert.AreEqual(tom, recipe.RecipeCreator);
-            Assert.AreEqual("stir", recipe.RecipeRecipe);
+            Assert.AreEqual("stir", recipe.RecipeDirections);
             Assert.AreEqual(true, recipe.RecipeType);
             //Assert.AreEqual(???, recipe.RecipeIngredients);
         }

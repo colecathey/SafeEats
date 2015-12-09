@@ -15,7 +15,7 @@ namespace SafeEats.Tests.models
 
         private Mock<RecipeContext> mock_context;
         private Mock<DbSet<Recipe>> mock_recipes;
-        private List<Recipe> my_list;
+        private List<RecipeList> my_list;
         private ApplicationUser owner, user1, user2;
 
         private void ConnectMocksToDataSource()
@@ -138,7 +138,7 @@ namespace SafeEats.Tests.models
         // How to define CRUD operations for Boards
         // Why? Because a List cannot exists without a Board
         [TestMethod]
-        public void BoardRepositoryEnsureABoardHasZeroLists()
+        public void RecipeRepositoryEnsureRecipeRepoHasZeroRecipes()
         {
             /* Begin Arrange */
             my_list.Add(new Recipe { RecipeName = "Soup", RecipeCreator = user1, RecipeId = 1 });
@@ -210,38 +210,38 @@ namespace SafeEats.Tests.models
             /* End Assert */
         }
 
-        [TestMethod]
-        public void BoardRepositoryCanCreateBoard()
-        {
-            /* Begin Arrange */
-            var data = my_list.AsQueryable();
+        //[TestMethod]
+        //public void BoardRepositoryCanCreateBoard()
+        //{
+        //    /* Begin Arrange */
+        //    var data = my_list.AsQueryable();
 
-            mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.Provider).Returns(data.Provider);
-            mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
-            mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.ElementType).Returns(data.ElementType);
-            mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.Expression).Returns(data.Expression);
+        //    mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.Provider).Returns(data.Provider);
+        //    mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+        //    mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.ElementType).Returns(data.ElementType);
+        //    mock_recipes.As<IQueryable<Recipe>>().Setup(m => m.Expression).Returns(data.Expression);
 
-            // This allows BoardRepository to call Boards.Add and have it update the my_list instance and Enumerator
-            // Connect DbSet.Add to List.Add so they work together
-            mock_context.Setup(m => m.Add(It.IsAny<Recipe>())).Callback((Recipe r) => mock_recipes.Add(r));
+        //    // This allows BoardRepository to call Boards.Add and have it update the my_list instance and Enumerator
+        //    // Connect DbSet.Add to List.Add so they work together
+        //    mock_context.Setup(m => m.Add(It.IsAny<Recipe>())).Callback((Recipe r) => mock_recipes.Add(r));
 
-            mock_context.Setup(m => m.Recipes).Returns(mock_context.Object);
+        //    mock_context.Setup(m => m.Recipes).Returns(mock_context.Object);
 
-            RecipeRepository recipe_repo = new RecipeRepository(mock_context.Object);
-            string recipeName = "Soup";
-            /* End Arrange */
+        //    RecipeRepository recipe_repo = new RecipeRepository(mock_context.Object);
+        //    string recipeName = "Soup";
+        //    /* End Arrange */
 
-            /* Begin Act */
-            Recipe added_recipe = recipe_repo.CreateRecipe(recipeName, owner);
-            /* End Act */
+        //    /* Begin Act */
+        //    Recipe added_recipe = recipe_repo.CreateRecipe(recipeName, owner);
+        //    /* End Act */
 
-            /* Begin Assert */
-            Assert.IsNotNull(added_recipe);
-            mock_context.Verify(m => m.Add(It.IsAny<Recipe>()));
-            mock_context.Verify(x => x.SaveChanges(), Times.Once());
-            Assert.AreEqual(1, recipe_repo.GetRecipeCount());
-            /* End Assert */
-        }
+        //    /* Begin Assert */
+        //    Assert.IsNotNull(added_recipe);
+        //    mock_context.Verify(m => m.Add(It.IsAny<Recipe>()));
+        //    mock_context.Verify(x => x.SaveChanges(), Times.Once());
+        //    Assert.AreEqual(1, recipe_repo.GetRecipeCount());
+        //    /* End Assert */
+        //}
 
         [TestMethod]
         public void RecipeRepositoryEnsureICanGetAllBoards()

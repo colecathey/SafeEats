@@ -20,66 +20,13 @@ namespace SafeEats.Models
         }
 
         // void or bool or Recipe
-        public bool AddRecipe(int _recipe_id, RecipeList _list)
-        {
-            var query = from r in context.Recipes where r.RecipeId == _recipe_id select r;
-            Recipe found_recipe = null;
-            bool result = true;
-            try
-            {
-                found_recipe = query.Single<Recipe>();
-                found_recipe.Lists.Add(_list);
-                context.SaveChanges();
-            }
-            catch (InvalidOperationException)
-            {
-                result = false;
-            }
-            catch (ArgumentNullException)
-            {
-                result = false;
-            }
-            return result;
-        }
+        
 
-        public bool AddList(int _recipe_id, RecipeList _list)
-        {
-            var query = from r in context.Recipes where r.RecipeId == _recipe_id select r;
-            Recipe found_recipe = null;
-            bool result = true;
-            try
-            {
-                found_recipe = query.Single<Recipe>();
-                found_recipe.Lists.Add(_list);
-                context.SaveChanges();
-            }
-            catch (InvalidOperationException)
-            {
-                result = false;
-            }
-            catch (ArgumentNullException)
-            {
-                result = false;
-            }
-            return result;
-        }
+        
 
-        public int GetListCount()
-        {
-            return GetAllLists().Count;
-        }
+        
 
-        public List<RecipeList> GetAllLists()
-        {
-            var query = from r in context.Recipes select r;
-            return query.SelectMany(recipe => recipe.Lists).ToList();
-        }
-
-        public List<RecipeList> GetAllLists(int _recipe_id)
-        {
-            var query = from r in context.Recipes where r.RecipeId == _recipe_id select r.Lists;
-            return query.Single<List<RecipeList>>();
-        }
+        
 
         public List<Recipe> GetRecipes(ApplicationUser user1)
         {
@@ -87,10 +34,7 @@ namespace SafeEats.Models
             return query.ToList<Recipe>(); // Same as query.ToList();
         }
 
-        public bool AddList(int v, Recipe list)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public int GetRecipeCount()
         {
@@ -107,15 +51,9 @@ namespace SafeEats.Models
             return my_recipe;
         }
 
-        public List<Recipe> GetAllRecipes()
+        public object GetAllRecipes()
         {
             throw new NotImplementedException();
         }
-
-        //public List<Recipe> GetAllRecipes()
-        //{
-        //    var query = from r in context.Recipes select r;
-        //    return query.SelectMany(Recipe => recipe.Lists).ToList();
-        //}
     }
 }

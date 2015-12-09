@@ -24,11 +24,11 @@ namespace SafeEats.Tests.models
         {
             
             // Object Initializer syntax
-            Ingredient ingredient = new Ingredient { IngredientName = "Carrot", IngredientId = 4, /*need to input type*/ };
+            Ingredient ingredient = new Ingredient { IngredientName = "Carrot", IngredientId = 4};
             
             Assert.AreEqual("Carrot", ingredient.IngredientName);
             Assert.AreEqual(4, ingredient.IngredientId);
-            //Assert.AreEqual(???, ingredient.IngredientType);
+            
         }
         
     }

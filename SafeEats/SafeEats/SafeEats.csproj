@@ -181,7 +181,7 @@
     <Compile Include="Models\RecipeContext.cs" />
     <Compile Include="Models\RecipeList.cs" />
     <Compile Include="Models\RecipeRepository.cs" />
-    <Compile Include="Models\Type.cs" />
+    <Compile Include="Models\RecipeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

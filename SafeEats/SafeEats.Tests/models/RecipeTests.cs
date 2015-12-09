@@ -15,21 +15,20 @@ namespace SafeEats.Tests.models
         }
 
         [TestMethod]
-        public void CardEnsureRecipePropertiesWork()
+        public void RecipeEnsureRecipePropertiesWork()
         {
             var tom = new ApplicationUser();
             
 
             // Object Initializer syntax
             Recipe recipe = new Recipe { RecipeName = "Soup", RecipeId = 4, RecipeCreator = tom,
-                RecipeDescription = "recipe", /*need to add ingredient list here*/ RecipeDirections = "stir", RecipeType = true };
+                RecipeDescription = "recipe", RecipeDirections = "stir"};
 
             Assert.AreEqual("Soup", recipe.RecipeName);
             Assert.AreEqual(4, recipe.RecipeId);
             Assert.AreEqual(tom, recipe.RecipeCreator);
             Assert.AreEqual("stir", recipe.RecipeDirections);
-            Assert.AreEqual(true, recipe.RecipeType);
-            //Assert.AreEqual(???, recipe.RecipeIngredients);
+            
         }
     }
 }

@@ -80,7 +80,7 @@ namespace SafeEats.Tests.models
 
             /* Begin Act */
             int expected = 2;
-            int actual = recipe_repo.GetAllRecipes().Count;
+            int actual = (int)recipe_repo.GetAllRecipes()/*.Count*/;   // get this fixed
             /* End Act */
 
             /* Begin Assert */
@@ -92,8 +92,7 @@ namespace SafeEats.Tests.models
         public void RecipeRepositoryEnsureThereAreZeroRecipes()
         {
             /* Begin Arrange */
-            my_list.Add(new Recipe { RecipeName = "Soup", RecipeCreator = user1 });
-            my_list.Add(new Recipe { RecipeName = "Meatloaf", RecipeCreator = user2 });
+            //testing for 0 recipes
 
             ConnectMocksToDataSource();
             RecipeRepository recipe_repo = new RecipeRepository(mock_context.Object);
@@ -106,21 +105,6 @@ namespace SafeEats.Tests.models
 
         }
 
-        
-        
-        [TestMethod]
-        public void RecipeRepositoryEnsureRecipeRepoHasZeroRecipes()
-        {
-            /* Begin Arrange */
-            my_list.Add(new Recipe { RecipeName = "Soup", RecipeCreator = user1, RecipeId = 1 });
-
-            ConnectMocksToDataSource();
-            /* Begin Act */
-            RecipeRepository recipe_repo = new RecipeRepository(mock_context.Object);
-            /* Begin Assert */
-            int expected = 0;
-            Assert.AreEqual(expected, recipe_repo.GetAllRecipes().Count());
-        }
 
         [TestMethod]
         public void RecipeRepositoryCanGetRecipe()

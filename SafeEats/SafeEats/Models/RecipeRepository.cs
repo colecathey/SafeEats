@@ -53,7 +53,8 @@ namespace SafeEats.Models
 
         public object GetAllRecipes()
         {
-            throw new NotImplementedException();
+            var query = from r in context.Recipes select r;
+            return query.SelectMany(recipe => recipe.RecipeName).ToList();
         }
     }
 }

@@ -66,3 +66,4 @@ C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\b
 C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\obj\Debug\SafeEats.dll
 C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\obj\Debug\SafeEats.pdb
+C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\obj\Debug\SafeEats.csprojResolveAssemblyReference.cache

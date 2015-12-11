@@ -13,16 +13,16 @@ namespace SafeEats.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Spin()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Spin away your hunger!";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Profile()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Your profile!";
 
             return View();
         }

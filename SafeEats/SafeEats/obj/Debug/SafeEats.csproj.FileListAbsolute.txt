@@ -67,3 +67,9 @@ C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\b
 C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\obj\Debug\SafeEats.dll
 C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\obj\Debug\SafeEats.pdb
 C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\obj\Debug\SafeEats.csprojResolveAssemblyReference.cache
+C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\bin\System.Net.Http.Formatting.dll
+C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\bin\System.Web.Http.dll
+C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\bin\System.Web.Http.WebHost.dll
+C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\bin\System.Net.Http.Formatting.xml
+C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\bin\System.Web.Http.xml
+C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\bin\System.Web.Http.WebHost.xml

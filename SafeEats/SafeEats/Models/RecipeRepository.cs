@@ -10,6 +10,10 @@ namespace SafeEats.Models
     {
         private RecipeContext context;
 
+        // DbContext is now ApplicationDbContext which gives use access to the
+        // table containing the users.
+        public IDbSet<ApplicationUser> Users { get { return context.Users; } }
+
         public RecipeRepository()
         {
             context = new RecipeContext();
@@ -49,6 +53,11 @@ namespace SafeEats.Models
             context.SaveChanges(); // This saves something to the Database
 
             return my_recipe;
+        }
+
+        internal List<RecipeList> GetAllRecipeLists(object RecipeId)
+        {
+            throw new NotImplementedException();
         }
 
         public object GetAllRecipes()

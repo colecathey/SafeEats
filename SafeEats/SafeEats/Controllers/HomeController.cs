@@ -15,6 +15,7 @@ namespace SafeEats.Controllers
 
         public ActionResult Spin()
         {
+            ViewBag.Title = "Spinner";
             ViewBag.Message = "Spin away your hunger!";
 
             return View();
@@ -22,6 +23,7 @@ namespace SafeEats.Controllers
 
         public ActionResult Profile()
         {
+            ViewBag.Title = "Profile";
             ViewBag.Message = "Your profile!";
 
             return View();

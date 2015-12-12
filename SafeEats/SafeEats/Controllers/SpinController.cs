@@ -46,7 +46,6 @@ namespace SafeEats.Controllers
             ViewBag.Title = my_recipe.RecipeName;
             ViewBag.CurrentBoardId = my_recipe.RecipeId;
 
-            //bool successful = repository.AddList(my_board.BoardId, new BrelloList { Title = "ToDo" });
 
             List<RecipeList> board_lists = repository.GetAllRecipeLists(my_recipe.RecipeId);
 

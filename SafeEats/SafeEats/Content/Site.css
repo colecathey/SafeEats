@@ -22,3 +22,30 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+/* Main columns on the start page. Seperate indetifiers in order to easily modify later*/
+
+#MainBodyColHome1 {
+    padding-bottom: 20px;
+}
+
+#MainBodyColHome2 {
+    padding-bottom: 20px;
+}
+
+#MainBodyColHome3 {
+    padding-bottom: 20px;
+}
+
+#Navbar {
+    background-color: #009900;
+}
+
+#NavbarFontLinks a {
+    color: white;
+}
+
+#NavbarFontHeader a {
+    color: white;
+}

@@ -23,7 +23,7 @@ textarea {
     max-width: 280px;
 }
 
-
+/* HomePage */
 /* Main columns on the start page. Seperate indetifiers in order to easily modify later*/
 
 #MainBodyColHome1 {
@@ -37,6 +37,14 @@ textarea {
 #MainBodyColHome3 {
     padding-bottom: 20px;
 }
+ 
+.jumbotron {
+    border-color: #009900;
+    border-width: 20px;
+}
+
+/* Navbar */
+
 
 #Navbar {
     background-color: #009900;
@@ -49,3 +57,10 @@ textarea {
 #NavbarFontHeader a {
     color: white;
 }
+
+#NavbarFontUserName a {
+    color: white;
+}
+
+
+/* Home page */

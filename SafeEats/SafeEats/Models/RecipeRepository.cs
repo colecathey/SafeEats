@@ -34,15 +34,11 @@ namespace SafeEats.Models
 
         public List<Recipe> GetRecipes(ApplicationUser users)
         {
+            
             var query = from r in context.Recipes where r.RecipeCreator == users select r;
-            if (query != null)
-            {
-                return query.ToList<Recipe>(); // Same as query.ToList();
-            }
-            else
-            {
-                return null; //need to set this up to return a default statement.
-            }
+           
+            return query.ToList(); 
+            
             
         }
 

@@ -59,10 +59,9 @@ namespace SafeEats.Models
             return my_recipe;
         }
 
-        internal List<RecipeList> GetAllRecipeLists(object RecipeId)
-        {
-            throw new NotImplementedException();
-        }
+        
+
+        
 
         public object GetAllRecipes()
         {

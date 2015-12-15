@@ -47,9 +47,9 @@ namespace SafeEats.Controllers
             ViewBag.CurrentBoardId = my_recipe.RecipeId;
 
 
-            List<RecipeList> board_lists = repository.GetAllRecipeLists(my_recipe.RecipeId);
+            List<Recipe> recipe_lists = repository.GetRecipes(my_recipe.RecipeCreator);
 
-            return View(board_lists);
+            return View(recipe_lists);
         }
     }
 }

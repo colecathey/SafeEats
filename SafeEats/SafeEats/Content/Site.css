@@ -1,6 +1,16 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#LayoutBody {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 10%;
 }
 
 /* Set padding to keep content from hitting the edges */

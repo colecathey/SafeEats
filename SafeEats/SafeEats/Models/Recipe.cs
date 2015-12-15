@@ -12,7 +12,7 @@ namespace SafeEats.Models
         public string RecipeDescription { get; set; }
         public List<Ingredient> RecipeIngredients { get; set; }
         public ApplicationUser RecipeCreator { get; set; }
-        public  RecipeType RecipeType{ get; set; } 
+        //public RecipeType RecipeType{ get; set; } 
         public string RecipeDirections { get; set; }
         //public object Recipes { get; internal set; }
         //public virtual List<RecipeList> Lists { get; set; } // ----??does this need to be here or in Recipe List??

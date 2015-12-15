@@ -35,9 +35,9 @@ namespace SafeEats.Models
         public List<Recipe> GetRecipes(ApplicationUser users)
         {
             
-            var query = from r in context.Recipes where r.RecipeCreator == users select r;
+            var query = from r in context.Recipes where r.RecipeCreator.Id == users.Id select r;
            
-            return query.ToList(); 
+            return query.ToList<Recipe>(); 
             
             
         }
@@ -52,7 +52,7 @@ namespace SafeEats.Models
 
         public Recipe CreateRecipe(string recipeName, ApplicationUser owner)
         {
-            Recipe my_recipe = new Recipe { RecipeName = recipeName, RecipeCreator = owner };
+            Recipe my_recipe = new Recipe { RecipeName = recipeName, RecipeCreator = owner, RecipeIngredients = new List<Ingredient>() };
             context.Recipes.Add(my_recipe);
             context.SaveChanges(); // This saves something to the Database
 

@@ -148,3 +148,5 @@ C:\Users\Rei\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\bi
 C:\Users\Rei\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\obj\Debug\SafeEats.csprojResolveAssemblyReference.cache
 C:\Users\Rei\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\obj\Debug\SafeEats.dll
 C:\Users\Rei\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\obj\Debug\SafeEats.pdb
+C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\obj\Debug\SafeEats.Migrations.InitialCreate.resources
+C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\obj\Debug\SafeEats.csproj.GenerateResource.Cache

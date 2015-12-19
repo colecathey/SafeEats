@@ -4,6 +4,12 @@ app.controller("SpinController", ["$scope", function ($scope) {
     $scope.test = 'Click the button';
 
     $scope.hello = function () {
-        $scope.test = "You clicked the button";
+        
+        $http.get("api/SafeEatsApi")
+            .success(function (response) {
+                console.log(response);
+                $scope.test = response.Data[1];
+            })
+        .error(function (error) { alert(error.message); });
     }
 }]);

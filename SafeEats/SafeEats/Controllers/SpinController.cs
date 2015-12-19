@@ -37,7 +37,7 @@ namespace SafeEats.Controllers
             Recipe my_recipe = null;
             if (recipes.Count() == 0)
             {
-                my_recipe = repository.CreateRecipe("My Recipe", me);
+                my_recipe = repository.CreateRecipe("Test Recipe", me);
             }
             else
             {

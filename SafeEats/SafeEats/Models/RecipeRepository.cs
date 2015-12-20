@@ -25,13 +25,7 @@ namespace SafeEats.Models
 
         // void or bool or Recipe
 
-
-
-
-
-
-
-
+        // get recipes associated with user
         public List<Recipe> GetRecipes(ApplicationUser users)
         {
 
@@ -42,14 +36,14 @@ namespace SafeEats.Models
 
         }
 
-
-
+        // get count of recipes
         public int GetRecipeCount()
         {
             var query = from r in context.Recipes select r;
             return query.Count();
         }
 
+        // create a recipe
         public Recipe CreateRecipe(string recipeName, ApplicationUser owner)
         {
             Recipe my_recipe = new Recipe { RecipeName = recipeName, RecipeCreator = owner, RecipeIngredients = new List<Ingredient>() };
@@ -59,10 +53,7 @@ namespace SafeEats.Models
             return my_recipe;
         }
 
-
-
-
-
+        // get all the recipes and return them as a list
         public object GetAllRecipes()
         {
             var query = from r in context.Recipes select r;

@@ -25,7 +25,7 @@ namespace SafeEats.Controllers
             repository = _repo;
         }
 
-        // GET: Board
+        // GET: Recipe List
         [Authorize]
         public ActionResult Index()
         {

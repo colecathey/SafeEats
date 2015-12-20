@@ -43,8 +43,10 @@ namespace SafeEats.Controllers
             {
                 my_recipe = recipes.First();
             }
-            ViewBag.Title = my_recipe.RecipeName;
+            // took this out to mess around with the view
+            //ViewBag.Title = my_recipe.RecipeName; 
             ViewBag.CurrentBoardId = my_recipe.RecipeId;
+            
 
 
             List<Recipe> recipe_lists = repository.GetRecipes(my_recipe.RecipeCreator);

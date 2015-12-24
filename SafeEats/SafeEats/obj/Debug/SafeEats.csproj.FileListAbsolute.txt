@@ -145,7 +145,6 @@ C:\Users\Rei\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\bi
 C:\Users\Rei\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Rei\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Rei\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Rei\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\obj\Debug\SafeEats.csprojResolveAssemblyReference.cache
 C:\Users\Rei\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\obj\Debug\SafeEats.dll
 C:\Users\Rei\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\obj\Debug\SafeEats.pdb
 C:\Users\Cole\Documents\Visual Studio 2015\Projects\SafeEats\SafeEats\SafeEats\obj\Debug\SafeEats.Migrations.InitialCreate.resources

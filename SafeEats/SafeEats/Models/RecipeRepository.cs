@@ -59,6 +59,14 @@ namespace SafeEats.Models
             var query = from r in context.Recipes select r;
             return query.SelectMany(recipe => recipe.RecipeName).ToList();
         }
+
+        public void RemoveRecipe(string recipeName)
+        {
+            Recipe my_recipe = new Recipe { RecipeName = recipeName };
+            context.Recipes.Remove(my_recipe);
+            context.SaveChanges();
+
+        }
     }
 }
 

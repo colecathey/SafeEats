@@ -169,13 +169,19 @@ namespace SafeEats.Tests.models
         public void RecipeRepositoryEnsureCanDeleteRecipe()
         {
             /* Begin Arrange */
+            my_list.Add(new Recipe { RecipeName = "Soup", RecipeCreator = user1 });
+            my_list.Add(new Recipe { RecipeName = "Meatloaf", RecipeCreator = user2 });
+            my_list.Add(new Recipe { RecipeName = "Cheese", RecipeCreator = user1 });
+            ConnectMocksToDataSource();
 
+            RecipeRepository recipe_repository = new RecipeRepository(mock_context.Object);
             /* End Arrange */
-            /* Begin Act */
 
+            /* Begin Act */
+            recipe_repository.RemoveRecipe("Meatloaf");
             /* End Act */
             /* Begin Assert */
-
+            Assert.AreEqual(2, recipe_repository.GetRecipeCount());
             /* End Assert */
 
         }

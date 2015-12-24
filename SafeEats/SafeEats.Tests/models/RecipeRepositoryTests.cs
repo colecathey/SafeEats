@@ -165,8 +165,23 @@ namespace SafeEats.Tests.models
             /* End Assert */
         }
 
-        
+        [TestMethod]
+        public void RecipeRepositoryEnsureCanDeleteRecipe()
+        {
+            /* Begin Arrange */
 
-        
+            /* End Arrange */
+            /* Begin Act */
+
+            /* End Act */
+            /* Begin Assert */
+
+            /* End Assert */
+
+        }
+
+
+
+
     }
 }

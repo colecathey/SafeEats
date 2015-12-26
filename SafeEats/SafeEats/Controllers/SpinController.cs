@@ -59,5 +59,73 @@ namespace SafeEats.Controllers
         {
             return View();
         }
+
+        // GET: Recipe/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateRecipe(FormCollection form)
+        {
+            string recipe_name = form.Get("recipe-name");
+            string recipe_id = form.Get("recipe-id");
+
+            //dont think i need this
+
+            //Recipe current_recipe = repository.GetRecipeById(int.Parse(board_id));
+            //if (current_board != null)
+            //{
+            //    repository.AddList(current_board.BoardId, new BrelloList { Title = list_name });
+            //}
+
+            return RedirectToAction("Index");
+
+        }
+
+        // GET: Recipe/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST: Recipe/Edit/5
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Recipe/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: Recipe/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

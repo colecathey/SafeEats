@@ -53,5 +53,11 @@ namespace SafeEats.Controllers
 
             return View(recipe_lists);
         }
+
+        // GET: Recipe/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
     }
 }

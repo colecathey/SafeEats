@@ -12,7 +12,7 @@ app.controller("SpinController", ["$scope", "$http", function ($scope, $http) {
             $scope.recipe = response.Data[1];
 
             //random number from 0 to recipeList.Length picked here
-            //return radome recipe.
+            //return random recipe.
 
         })
         .error(function (error) { alert(error.message); });

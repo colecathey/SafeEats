@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using System.Web.Http;
 
 namespace SafeEats.Controllers
 {
@@ -20,13 +21,13 @@ namespace SafeEats.Controllers
             repository = new RecipeRepository();
         }
 
-        public SpinController(RecipeRepository _repo)
+        public ProfileController(RecipeRepository _repo)
         {
             repository = _repo;
         }
 
         // GET: Recipe List
-        [Authorize]
+        [System.Web.Mvc.Authorize]
         public ActionResult Index()
         {
 

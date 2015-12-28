@@ -26,6 +26,12 @@ namespace SafeEats.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            context.Recipes.AddOrUpdate(r => r.RecipeName,
+                new Models.Recipe { RecipeName = "Meatloaf" },
+                new Models.Recipe { RecipeName = "Chicken al'orange" },
+                new Models.Recipe { RecipeName = "A single carrot" },
+                new Models.Recipe { RecipeName = "Porridge" },
+                new Models.Recipe { RecipeName = "Trout Souflee" });
         }
     }
 }

@@ -7,10 +7,23 @@
 }
 <h2>@ViewBag.Title</h2>
     <body ng-app="SafeEats">
-        <div ng-controller="profile">
+        @Html.Partial("_NavPartial")        
             <h1>hi</h1>
-        
-                   
-        </div>
+            <div class="container-fluid">
+                <div class="row" style="display:inline-flex;">
+                    @foreach (var item in Model)
+                    {
+                        <div>
+                            <div>@item.Title</div>
+                            <div>
+                                <ul class="center"></ul>
+                            </div>
+                            <div ng-controller="ProfileController">
+                                <div style="display:none" id=@item.RecipeId></div>                                
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
     </body>
     

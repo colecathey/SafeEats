@@ -1,26 +1,30 @@
 ﻿var app = angular.module('SafeEats', []);
 
-app.controller("SpinController", ["$scope", function ($scope) {
-    $scope.test = 'Click the button';
+app.controller("SpinController", ["$scope", "$http", function ($scope, $http) {
 
-    //$scope.hello = function () {
-        
-    //    $http.get("api/SafeEatsApi")
-    //        .success(function (response) {
-    //            console.log(response);
-    //            $scope.test = response.Data[1];
-    //        })
-    //    .error(function (error) { alert(error.message); });
-
-    //}
-
+    
     $scope.spin = function () {
         
         $http.get("api/SafeEatsApi")
 
         .success(function (response) {
             console.log(response);
-            $scope.recipe = response.Data[0];
+            $scope.recipe = response.Data[1];
+
+            //random number from 0 to recipeList.Length picked here
+            //return radome recipe.
+
         })
+        .error(function (error) { alert(error.message); });
     }
+}]);
+
+app.controller("ProfileController", ["$scope", "$http", function ($scope, $http) {
+
+    $scope.userId = 
+    $scope.userRecipeList = []
+
+
+
+
 }]);

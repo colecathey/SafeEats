@@ -19,12 +19,12 @@ app.controller("SpinController", ["$scope", "$http", function ($scope, $http) {
     }
 }]);
 
-app.controller("ProfileController", ["$scope", "$http", function ($scope, $http) {
+//app.controller("ProfileController", ["$scope", "$http", function ($scope, $http) {
 
-    $scope.userId = 
-    $scope.userRecipeList = []
-
-
+//    $scope.userId = 
+//    $scope.userRecipeList = []
 
 
-}]);
+
+
+//}]);

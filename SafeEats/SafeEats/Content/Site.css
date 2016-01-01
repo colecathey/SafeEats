@@ -77,8 +77,25 @@ textarea {
 
 /* Spin Page */
 
+.spin-wrapper {
+    text-align: center;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
 #createRecipeButton {
     margin-bottom: 20px;
     clear: both;
     margin: auto;
+}
+
+#spinButtton {
+    text-align: center;
+    padding: 10%;
+}
+
+#spinRow {
+    text-align: center;
+    padding-top: 10%;
+    padding-bottom: 10%;
 }

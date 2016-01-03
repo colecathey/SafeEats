@@ -67,7 +67,9 @@
                                  <div class="row" id="spinRow">
                                      <div class="btn btn-info" ng-click="spin()" id="spinButton">Spin!</div>
                                  </div>
-                                 <div>@ViewBag.AllRecipes</div>
+                                 <ul>
+                                     <li ng-repeat="recipe in recipes"></li>
+                                 </ul>
                              </div>
 
                      </body>

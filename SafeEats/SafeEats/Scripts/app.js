@@ -19,6 +19,13 @@ app.controller("SpinController", ["$scope", "$http", function ($scope, $http) {
         })
         .error(function (error) { alert(error.message); });
     }
+
+    $scope.recipes = [
+        { RecipeName: 'Meatloaf', RecipeCreator: 'Pam', RecipeIngredients: 'Meat, Egg, Peppers, Spice' },
+        { RecipeName: 'Stuffed Bellpeppers', RecipeCreator: 'Sue', RecipeIngredients: 'Meat, Cheese, Peppers, Spice' },
+        { RecipeName: 'Chicken Noodle Soup', RecipeCreator: 'Pam', RecipeIngredients: 'Chicken, Noodles, Broth, Carrots, Peas' },
+        { RecipeName: 'Taco Salad', RecipeCreator: 'Todd', RecipeIngredients: 'Meat, Salad, Tortilla, Spice, Cheese' }
+    ]
 }]);
 
 //app.controller("ProfileController", ["$scope", "$http", function ($scope, $http) {

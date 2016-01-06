@@ -68,9 +68,9 @@
                                      <div class="btn btn-info" ng-click="spin()" id="spinButton">Spin!</div>
                                  </div>
                                  <div>
-                                     <ul>
-                                         <li ng-repeat="recipe in recipes"></li>
-                                     </ul>
+                                     <table class="table table-striped">
+                                         {{ r in recipes }}
+                                     </table>
                                  </div>
                              </div>
 
